@@ -18,6 +18,7 @@ public class CalculatorController {
     private CalculatorDto dto = new CalculatorDto();
 
     @PostMapping("/calculator")
+    @ResponseBody
     public String addition (@RequestBody CalculatorForm calculatorForm, Model model) {
 
       Calculator calculator = calculatorService.addition(calculatorForm.getNum1(), calculatorForm.getNum2());
@@ -26,7 +27,12 @@ public class CalculatorController {
       dto.setOperation(calculator.getOperation());
       dto.setResult(calculator.getResult());
 
-      return "calculator_page";
+      return "redirect:/calculator";
+    }
+
+    @GetMapping("/calculator")
+    public String getCalculator() {
+        return "calculator_page";
     }
 
     @GetMapping("/calculator/{calculator-id}")
