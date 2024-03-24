@@ -14,7 +14,13 @@
     <input type="number" id="num1" name="num1" required><br>
     <label for="num2">Number 2:</label>
     <input type="number" id="num2" name="num2" required><br>
-    <input type="hidden" id="operation" name="operation" value="add">
+    <label for="operation">Operation:</label>
+    <select id="operation" name="signOp">
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+    </select><br>
     <input type="submit" value="Calculate">
 </form>
 </body>

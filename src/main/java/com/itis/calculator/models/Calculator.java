@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -19,6 +21,10 @@ public class Calculator {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long calculatorId;
 
-    private String operation;
+    private String signOp;
+    private double num1;
+    private double num2;
     private double result;
+
+//    private List<Calculator> calculatedNums;
 }

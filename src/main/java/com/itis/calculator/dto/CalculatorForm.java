@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class CalculatorForm {
     private double num1;
     private double num2;
+    private String signOp;
 }
