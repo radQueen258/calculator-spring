@@ -22,20 +22,21 @@ public class CalculatorController {
     @Autowired
     private CalculatorRepository calculatorRepository;
 
-    @PostMapping("/calculator")
-    public String getOperation (CalculatorForm calculatorForm, RedirectAttributes redirectAttributes) {
+    @PostMapping("/user/{user-id}/calculator")
+    public String getOperation (@PathVariable("user-id") Long id,CalculatorForm calculatorForm, RedirectAttributes redirectAttributes) {
 
-        Long calculationId = calculatorService.operation(calculatorForm);
+        Long calculationId = calculatorService.operation(id,calculatorForm);
         redirectAttributes.addAttribute("calculator-id", calculationId);
 
-        return "redirect:/calculator/{calculator-id}";
+        return "redirect:/user/{user-id}/calculator/{calculator-id}";
     }
-    @GetMapping("/calculator")
-    public String getCalculator() {
+    @GetMapping("/user/{user-id}/calculator")
+    public String getCalculator(@PathVariable("user-id") Long id, Model model) {
+        model.addAttribute("calculation", calculatorService.getByUser(id));
         return "calculator_page";
     }
 
-    @GetMapping("/calculator/{calculator-id}")
+    @GetMapping("/user/{user-id}/calculator/{calculator-id}")
     public String getResult (@PathVariable("calculator-id") Long id, Model model, @ModelAttribute CalculatorForm form) {
         Optional<Calculator> optionalCalculator = calculatorRepository.findById(id);
 
