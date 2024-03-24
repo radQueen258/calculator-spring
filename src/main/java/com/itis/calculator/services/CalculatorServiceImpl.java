@@ -17,12 +17,10 @@ public class CalculatorServiceImpl implements CalculatorService{
 
 
     @Override
-    public void operation(CalculatorForm form) {
-        Calculator calculator = new Calculator();
+    public Long operation(CalculatorForm form) {
         String sign = form.getSignOp();
-        System.out.println(form.getNum1());
-        System.out.println(form.getNum1());
-        System.out.println("THEEEE SIGN IS" + sign);
+        Long calculationId = null;
+
         switch (sign) {
             case "add":
                 Calculator calculator1 = Calculator.builder()
@@ -31,7 +29,8 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .signOp(form.getSignOp())
                         .result(form.getNum1() + form.getNum2())
                         .build();
-                calculatorRepository.save(calculator1);
+               Calculator saved = calculatorRepository.save(calculator1);
+               calculationId = saved.getCalculatorId();
                 break;
 
             case "subtract":
@@ -42,7 +41,8 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .result(form.getNum1() - form.getNum2())
                         .build();
 
-                calculatorRepository.save(calculator2);
+                Calculator saved2 = calculatorRepository.save(calculator2);
+                calculationId = saved2.getCalculatorId();
                 break;
 
             case "multiply":
@@ -52,7 +52,8 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .signOp(form.getSignOp())
                         .result(form.getNum1() * form.getNum2())
                         .build();
-                calculatorRepository.save(calculator3);
+                Calculator saved3 = calculatorRepository.save(calculator3);
+                calculationId = saved3.getCalculatorId();
                 break;
 
             case "divide":
@@ -62,17 +63,14 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .signOp(form.getSignOp())
                         .result(form.getNum1() / form.getNum2())
                         .build();
-                calculatorRepository.save(calculator4);
+                Calculator saved4 = calculatorRepository.save(calculator4);
+                calculationId = saved4.getCalculatorId();
                 break;
 
         }
 
+        return calculationId;
+
     }
 
-    @Override
-    public List<CalculatorDto> getByCalculatorId(Long calculationId) {
-        Calculator calculator = calculatorRepository.getOne(calculationId);
-//        List<Calculator> calculatorList = calculator.getCalculatorId();
-        return null;
-    }
 }

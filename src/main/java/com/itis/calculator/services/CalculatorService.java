@@ -7,7 +7,6 @@ import com.itis.calculator.models.Calculator;
 import java.util.List;
 
 public interface CalculatorService {
-    public void operation(CalculatorForm form);
+    public Long operation(CalculatorForm form);
 
-    List<CalculatorDto> getByCalculatorId (Long calculationId);
 }
