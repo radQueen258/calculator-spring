@@ -53,7 +53,7 @@
 
 </head>
 <body>
-<form action="/calculator/{calculator-id}" method="get">
+<form action="/user/{user-id}/calculator/{calculator-id}" method="get">
     <h1>Result</h1>
     <p>The result of the calculation is:${result}</p>
 </form>

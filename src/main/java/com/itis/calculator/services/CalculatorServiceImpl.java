@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CalculatorServiceImpl implements CalculatorService{
@@ -89,4 +90,15 @@ public class CalculatorServiceImpl implements CalculatorService{
         return CalculatorDto.calculatorDtoList(calculatorList);
     }
 
+    @Override
+    public CalculatorDto getByCalculatoraId(Long id) {
+        Optional<Calculator> optionalCalculator = calculatorRepository.findById(id);
+        if (optionalCalculator.isPresent()) {
+            Calculator calculator = optionalCalculator.get();
+            return new CalculatorDto(calculator.getCalculatorId(), calculator.getSignOp(), calculator.getResult(),calculator.getUser().getId());
+        } else {
+            return null;
+        }
+
+    }
 }

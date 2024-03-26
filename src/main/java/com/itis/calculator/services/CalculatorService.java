@@ -11,4 +11,5 @@ public interface CalculatorService {
     public Long operation(Long userId, CalculatorForm form);
 
     List<CalculatorDto> getByUser(Long id);
+    CalculatorDto getByCalculatoraId(Long id);
 }

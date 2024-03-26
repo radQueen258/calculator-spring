@@ -56,7 +56,7 @@
 </head>
 <body>
 <#--<h1>Calculator</h1>-->
-<form action="/calculator" method="post">
+<form action="/user/{user-id}/calculator" method="post">
     <label for="num1">Number 1:</label>
     <input type="number" id="num1" name="num1" required><br>
     <label for="num2">Number 2:</label>

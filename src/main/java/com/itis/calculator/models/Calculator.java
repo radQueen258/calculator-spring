@@ -25,6 +25,7 @@ public class Calculator {
 
     @ManyToOne
     @JoinTable(name = "operation_user")
+    @JoinColumn(name = "user_id")
     private User user;
 
 }
