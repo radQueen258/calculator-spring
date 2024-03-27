@@ -71,6 +71,9 @@
     <label>Username:</label>
     <input type="username" name="username" required="required"/>
     <br/>
+    <label>Email:</label>
+    <input type="email" name="email" required="required"/>
+    <br/>
     <label>Password:</label>
     <input type="password" name="password" required="required"/>
     <br/>

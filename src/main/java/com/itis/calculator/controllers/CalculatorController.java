@@ -23,41 +23,36 @@ public class CalculatorController {
     private CalculatorRepository calculatorRepository;
 
     @PostMapping("/user/{user-id}/calculator")
-    public String getOperation (@PathVariable("user-id") Long id,CalculatorForm calculatorForm, RedirectAttributes redirectAttributes) {
-        System.out.println("PASSEEEEEEEEEEED the userId " + id);
+    public String getOperation (@PathVariable("user-id") Long id,CalculatorForm calculatorForm,
+                                RedirectAttributes redirectAttributes) {
 
         Long calculationId = calculatorService.operation(id,calculatorForm);
 
-        System.out.println("the calculator " + calculationId);
         redirectAttributes.addAttribute("calculator-id", calculationId);
 
-        return "redirect:/user/" + id +"/calculator/" + calculationId;
+        return "redirect:/user/{user-id}/calculator/{calculator-id}/result";
     }
+
+//    @GetMapping("/user/{user-id}/calculator/{calculator-id}")
+//    public String getResult (@PathVariable("calculator-id") Long id,
+//                             @PathVariable("user-id") Long userId,
+//                             Model model,
+//                             @ModelAttribute CalculatorForm form) {
+//
+//        CalculatorDto calculatorDto = calculatorService.getByCalculatoraId(id);
+//        if (calculatorDto != null) {
+//            model.addAttribute("result", calculatorDto.getResult());
+//            return "result_page";
+//        } else {
+//            throw new IllegalArgumentException("Calculator result with ID " + id + " not found");
+//        }
+//    }
+
     @GetMapping("/user/{user-id}/calculator")
     public String getCalculator(@PathVariable("user-id") Long id, Model model) {
         model.addAttribute("calculation", calculatorService.getByUser(id));
         return "calculator_page";
     }
 
-    @GetMapping("/user/{user-id}/calculator/{calculator-id}")
-    public String getResult (@PathVariable("calculator-id") Long id,
-                             @PathVariable("user-id") Long userId,
-                             Model model,
-                             @ModelAttribute CalculatorForm form) {
 
-        CalculatorDto calculatorDto = calculatorService.getByCalculatoraId(id);
-        if (calculatorDto != null) {
-            model.addAttribute("result", calculatorDto.getResult());
-            return "result_page";
-        } else {
-            throw new IllegalArgumentException("Calculator result with ID " + id + " not found");
-        }
-//        if (optionalCalculator.isPresent()) {
-//            Calculator calculator = optionalCalculator.get();
-//            model.addAttribute("result", calculator.getResult());
-//            return "result_page";
-//        } else {
-//            throw new IllegalArgumentException("Calculator result with ID " + id + " not found");
-//        }
-    }
 }

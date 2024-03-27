@@ -27,6 +27,8 @@ public class CalculatorServiceImpl implements CalculatorService{
         String sign = form.getSignOp();
         Long calculationId = null;
 
+        System.out.println(" USER ID: " + user);
+
         switch (sign) {
             case "add":
                 Calculator calculator1 = Calculator.builder()
@@ -37,6 +39,10 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .result(form.getNum1() + form.getNum2())
                         .build();
                Calculator saved = calculatorRepository.save(calculator1);
+               user.getCreatedCalculations().add(saved);
+               userRepository.save(user);
+
+                System.out.println("SAVED WITH SUCCESS!!!!!!!!!!!!!!!!!!!!");
                calculationId = saved.getCalculatorId();
                 break;
 
