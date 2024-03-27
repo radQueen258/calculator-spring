@@ -56,6 +56,8 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .build();
 
                 Calculator saved2 = calculatorRepository.save(calculator2);
+                user.getCreatedCalculations().add(saved2);
+                userRepository.save(user);
                 calculationId = saved2.getCalculatorId();
                 break;
 
@@ -68,6 +70,8 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .result(form.getNum1() * form.getNum2())
                         .build();
                 Calculator saved3 = calculatorRepository.save(calculator3);
+                user.getCreatedCalculations().add(saved3);
+                userRepository.save(user);
                 calculationId = saved3.getCalculatorId();
                 break;
 
@@ -80,6 +84,8 @@ public class CalculatorServiceImpl implements CalculatorService{
                         .result(form.getNum1() / form.getNum2())
                         .build();
                 Calculator saved4 = calculatorRepository.save(calculator4);
+                user.getCreatedCalculations().add(saved4);
+                userRepository.save(user);
                 calculationId = saved4.getCalculatorId();
                 break;
 

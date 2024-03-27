@@ -26,14 +26,6 @@ public class ProfileController {
         String username = authentication.getName();
 
         User user = userRepository.findByEmail(username).orElseThrow(() -> new RuntimeException("User with email " + username + " not found"));
-//        User user = userRepository.findByEmail(userDetails.getUsername());
-
-//        if (user != null) {
-//            Long userId = user.getId();
-//            model.addAttribute("userId", userId);
-//        } else {
-//            return "error";
-//        }
 
         Long userId = user.getId();
         model.addAttribute("userId", userId);
@@ -42,14 +34,5 @@ public class ProfileController {
 
         return "profile_page";
     }
-
-//    private Long getUserId (UserDetailsImpl userDetails) {
-//        if (userDetails != null && userDetails.getUser() != null) {
-//            return userDetails.getUser().ge
-//        } else {
-//            return null;
-//        }
-//    }
-
 
 }
