@@ -62,10 +62,10 @@
     <input type="number" id="num2" name="num2" required><br>
     <label for="operation">Operation:</label>
     <select id="operation" name="signOp">
-        <option value="add">Add</option>
-        <option value="subtract">Subtract</option>
-        <option value="multiply">Multiply</option>
-        <option value="divide">Divide</option>
+        <option value="+">Add</option>
+        <option value="-">Subtract</option>
+        <option value="x">Multiply</option>
+        <option value="÷">Divide</option>
     </select><br>
     <input type="submit" value="Calculate">
 </form>

@@ -21,6 +21,7 @@ public class ResultController {
         CalculatorDto calculatorDto = calculatorService.getByCalculatoraId(calculatorId);
 
         if (calculatorDto != null) {
+            model.addAttribute("history", calculatorService.getByUser(userId));
             model.addAttribute("result", calculatorDto.getResult());
             model.addAttribute("calId", calculatorId);
             model.addAttribute("userId", userId);

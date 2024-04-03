@@ -30,7 +30,7 @@ public class CalculatorServiceImpl implements CalculatorService{
         System.out.println(" USER ID: " + user);
 
         switch (sign) {
-            case "add":
+            case "+":
                 Calculator calculator1 = Calculator.builder()
                         .user(user)
                         .num1(form.getNum1())
@@ -46,7 +46,7 @@ public class CalculatorServiceImpl implements CalculatorService{
                calculationId = saved.getCalculatorId();
                 break;
 
-            case "subtract":
+            case "-":
                 Calculator calculator2 = Calculator.builder()
                         .user(user)
                         .num1(form.getNum1())
@@ -61,7 +61,7 @@ public class CalculatorServiceImpl implements CalculatorService{
                 calculationId = saved2.getCalculatorId();
                 break;
 
-            case "multiply":
+            case "x":
                 Calculator calculator3 = Calculator.builder()
                         .user(user)
                         .num1(form.getNum1())
@@ -75,7 +75,7 @@ public class CalculatorServiceImpl implements CalculatorService{
                 calculationId = saved3.getCalculatorId();
                 break;
 
-            case "divide":
+            case "÷":
                 Calculator calculator4 = Calculator.builder()
                         .user(user)
                         .num1(form.getNum1())
@@ -107,7 +107,7 @@ public class CalculatorServiceImpl implements CalculatorService{
         Optional<Calculator> optionalCalculator = calculatorRepository.findById(id);
         if (optionalCalculator.isPresent()) {
             Calculator calculator = optionalCalculator.get();
-            return new CalculatorDto(calculator.getCalculatorId(), calculator.getSignOp(), calculator.getResult(),calculator.getUser().getId());
+            return new CalculatorDto(calculator.getCalculatorId(),calculator.getNum1(), calculator.getNum2(), calculator.getSignOp(), calculator.getResult(), calculator.getUser().getId());
         } else {
             return null;
         }

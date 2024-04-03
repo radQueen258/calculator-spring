@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class CalculatorDto {
     private Long calculatorId;
+    private double num1;
+    private double num2;
     private String signOp;
     private double result;
     private Long userId;
@@ -24,12 +26,16 @@ public class CalculatorDto {
         Long calculatorId = calculator.getCalculatorId();
         String operation = calculator.getSignOp();
         double result = calculator.getResult();
+        double num1 = calculator.getNum1();
+        double num2 = calculator.getNum2();
         Long userId = calculator.getUser().getId();
 
 
         return CalculatorDto.builder()
                 .userId(userId)
                 .calculatorId(calculatorId)
+                .num1(num1)
+                .num2(num2)
                 .signOp(operation)
                 .result(result)
                 .build();

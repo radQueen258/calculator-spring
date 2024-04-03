@@ -58,5 +58,30 @@
     <p>The result of the calculation is:${result}</p>
 </form>
 
+<div>
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <th scope="col">Number 1</th>
+            <th scope="col">Number 2</th>
+            <th scope="col">Sign</th>
+            <th scope="col">Result</th>
+        </tr>
+        </thead>
+        <#list history as history>
+            <tbody>
+            <tr>
+                <td>${history.num1}</td>
+                <td>${history.num2}</td>
+                <td>${history.signOp}</td>
+                <td>${history.result}</td>
+            </tr>
+            </tbody>
+        </#list>
+    </table>
+</div>
+
+
+
 </body>
 </html>
