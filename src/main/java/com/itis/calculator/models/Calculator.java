@@ -1,9 +1,6 @@
 package com.itis.calculator.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -23,9 +20,11 @@ public class Calculator {
     private double num2;
     private double result;
 
+    @ToString.Exclude
     @ManyToOne
-    @JoinTable(name = "operation_user")
-    @JoinColumn(name = "user_id")
     private User user;
+//    @JoinTable(name = "operation_user")
+//    @JoinColumn(name = "user_id")
+
 
 }
