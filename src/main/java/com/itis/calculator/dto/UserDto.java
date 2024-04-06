@@ -15,11 +15,11 @@ public class UserDto {
     private String username;
     private String email;
 
-    public static UserDto from(User user) {
-        return UserDto.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .email(user.getEmail())
-                .build();
-    }
+//    public static UserDto from(User user) {
+//        return UserDto.builder()
+//                .id(user.getId())
+//                .username(user.getUsername())
+//                .email(user.getEmail())
+//                .build();
+//    }
 }

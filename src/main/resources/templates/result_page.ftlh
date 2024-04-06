@@ -19,6 +19,15 @@
         form {
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
+            align-items: flex-start;
+            padding: 30px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        #tab {
+            background-color: rgba(169, 168, 168, 0.44);
+            border-radius: 10px;
             padding: 30px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
@@ -59,12 +68,13 @@
 </form>
 
 <div>
-    <table class="table table-stripped">
+    <table id="tab" class="table table-stripped">
         <thead>
         <tr>
             <th scope="col">Number 1</th>
-            <th scope="col">Number 2</th>
             <th scope="col">Sign</th>
+            <th scope="col">Number 2</th>
+            <th scope="col">...</th>
             <th scope="col">Result</th>
         </tr>
         </thead>
@@ -72,8 +82,9 @@
             <tbody>
             <tr>
                 <td>${history.num1}</td>
-                <td>${history.num2}</td>
                 <td>${history.signOp}</td>
+                <td>${history.num2}</td>
+                <td>=</td>
                 <td>${history.result}</td>
             </tr>
             </tbody>

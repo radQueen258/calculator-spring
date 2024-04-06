@@ -23,6 +23,6 @@ public class SignUpController {
     public String registerUser (SignUpDto signUpDto) {
         signUpService.addUser(signUpDto);
 
-        return "redirect:/signUpPage";
+        return "redirect:/signIn";
     }
 }
